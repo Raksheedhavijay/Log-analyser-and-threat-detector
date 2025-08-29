@@ -1,0 +1,28 @@
+##  Class Diagram (UML)
+```mermaid
+classDiagram
+    class LogAnalyzer {
+        - List~String~ logs
+        + loadLogs(filePath:String)
+        + detectThreats()
+        + exportReport(file:String)
+    }
+
+    class ThreatDetector {
+        + detectBruteForce()
+        + detectSQLInjection()
+        + detectSuspiciousIP()
+    }
+
+    class ReportGenerator {
+        + generateSummary()
+        + saveToFile()
+    }
+
+    class CustomException {
+        + CustomException(message:String)
+    }
+
+    LogAnalyzer --> ThreatDetector
+    LogAnalyzer --> ReportGenerator
+    LogAnalyzer --> CustomException
